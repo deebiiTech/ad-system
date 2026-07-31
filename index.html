@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBN Media Management Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: 'Times New Roman', Times, serif !important;
+    }
+    body {
+      font-size: 12pt !important;
+    }
+    @media print {
+      .no-print-main { display: none !important; }
+      .app-frame { height: 100vh !important; border: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <header class="bg-blue-900 text-white shadow-md no-print-main sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <div class="flex items-center gap-3">
+        <h1 class="text-xl font-bold tracking-wide">OBN Media Solutions Portal</h1>
+      </div>
+
+      <div class="flex bg-blue-950 p-1 rounded-lg border border-blue-700">
+        <button id="btn-beeksisaa" onclick="switchSystem('beeksisaa')" 
+          class="px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow">
+          📺 Siistema Beeksisaa OBN
+        </button>
+        <button id="btn-ramaddii" onclick="switchSystem('ramaddii')" 
+          class="px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white">
+          📋 Systema Ramaddii
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto p-2 sm:p-4">
+    
+    <div id="view-beeksisaa" class="w-full h-[calc(100vh-100px)] bg-white rounded-xl shadow-lg overflow-hidden">
+      <iframe 
+        src="https://deebiitech.github.io/siistema-Beeksisaa-OBN/" 
+        class="w-full h-full border-none app-frame" 
+        title="Siistema Beeksisaa OBN">
+      </iframe>
+    </div>
+
+    <div id="view-ramaddii" class="w-full h-[calc(100vh-100px)] bg-white rounded-xl shadow-lg overflow-hidden hidden">
+      <iframe 
+        src="https://deebiitech.github.io/Systema-Ramaddii/" 
+        class="w-full h-full border-none app-frame" 
+        title="Systema Ramaddii">
+      </iframe>
+    </div>
+
+  </main>
+
+  <script>
+    function switchSystem(systemName) {
+      const viewBeeksisaa = document.getElementById('view-beeksisaa');
+      const viewRamaddii = document.getElementById('view-ramaddii');
+      const btnBeeksisaa = document.getElementById('btn-beeksisaa');
+      const btnRamaddii = document.getElementById('btn-ramaddii');
+
+      if (systemName === 'beeksisaa') {
+        // Show Beeksisaa
+        viewBeeksisaa.classList.remove('hidden');
+        viewRamaddii.classList.add('hidden');
+        
+        // Active Button Styling
+        btnBeeksisaa.className = "px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow";
+        btnRamaddii.className = "px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white";
+      } else {
+        // Show Ramaddii
+        viewRamaddii.classList.remove('hidden');
+        viewBeeksisaa.classList.add('hidden');
+
+        // Active Button Styling
+        btnRamaddii.className = "px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow";
+        btnBeeksisaa.className = "px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white";
+      }
+    }
+  </script>
+</body>
+</html>
