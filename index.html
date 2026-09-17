@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OBN Media Management Portal</title>
+  
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/ thumb/8/87/Oromia_Broadcasting_Network_logo.png/600px-Oromia_Broadcasting_Network_logo.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Oromia_Broadcasting_Network_logo.png/600px-Oromia_Broadcasting_Network_logo.png">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * {
@@ -22,18 +27,23 @@
 
   <header class="bg-blue-900 text-white shadow-md no-print-main sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
+      
+      <!-- OBN Logo & Title Header -->
       <div class="flex items-center gap-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Oromia_Broadcasting_Network_logo.png/600px-Oromia_Broadcasting_Network_logo.png" 
+             alt="OBN Logo" 
+             class="h-10 w-10 object-contain rounded-full border border-white bg-white p-0.5 shadow">
         <h1 class="text-xl font-bold tracking-wide">OBN Media Solutions Portal</h1>
       </div>
 
       <div class="flex bg-blue-950 p-1 rounded-lg border border-blue-700">
         <button id="btn-beeksisaa" onclick="switchSystem('beeksisaa')" 
-          class="px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow">
-          📺 Siistema Beeksisaa OBN
+          class="px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow flex items-center gap-2">
+          <span>📺</span> Siistema Beeksisaa OBN
         </button>
         <button id="btn-ramaddii" onclick="switchSystem('ramaddii')" 
-          class="px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white">
-          📋 Systema Ramaddii
+          class="px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white flex items-center gap-2">
+          <span>📋</span> Systema Ramaddii
         </button>
       </div>
     </div>
@@ -72,16 +82,16 @@
         viewRamaddii.classList.add('hidden');
         
         // Active Button Styling
-        btnBeeksisaa.className = "px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow";
-        btnRamaddii.className = "px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white";
+        btnBeeksisaa.className = "px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow flex items-center gap-2";
+        btnRamaddii.className = "px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white flex items-center gap-2";
       } else {
         // Show Ramaddii
         viewRamaddii.classList.remove('hidden');
         viewBeeksisaa.classList.add('hidden');
 
         // Active Button Styling
-        btnRamaddii.className = "px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow";
-        btnBeeksisaa.className = "px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white";
+        btnRamaddii.className = "px-4 py-2 rounded-md font-bold transition-all text-sm bg-blue-600 text-white shadow flex items-center gap-2";
+        btnBeeksisaa.className = "px-4 py-2 rounded-md font-bold transition-all text-sm text-gray-300 hover:text-white flex items-center gap-2";
       }
     }
   </script>
